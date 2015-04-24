@@ -6,7 +6,6 @@
 import edu.co.sena.jpa.util.EntityManagerHelper;
 import java.util.Calendar;
 import edu.co.sena.tennisshop.integracion.jpa.entitis.Cuenta;
-import edu.co.sena.tennisshop.integracion.jpa.entitis.Domicilio;
 import edu.co.sena.tennisshop.integracion.jpa.entitis.Factura;
 import java.util.Date;
 import java.util.List;
@@ -21,7 +20,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import javax.persistence.Query;
 
 /**
  *
@@ -136,31 +134,6 @@ public class FacturaJPATest {
         List<Factura> lis = q.getResultList();
         for (Factura facturaT : lis) {
 
-            System.out.println(facturaT.toString());
-        }
-
-        EntityManagerHelper.commit();
-        EntityManagerHelper.closeEntityManager();
-        EntityManagerHelper.closeEntityManagerFactory();
-
-    }
-    @Test
-    public void buscarPorFecha() {
-        
-        Calendar hoy = Calendar.getInstance(TimeZone.getTimeZone("GMT-5"));
-         hoy.set(20, 4, 2015);
-       Date fechaTemporal = hoy.getTime();
-
-        em = EntityManagerHelper.getEntityManager();
-        EntityManagerHelper.beginTransaction();
-
-        Query query = em.createNamedQuery("Factura.findByFechaFactura");
-        System.out.println("fecha en el objeto:"+fechaTemporal);
-        query.setParameter("fechaFactura",fechaTemporal);
-        
-
-        List<Factura> lista = query.getResultList();
-        for (Factura facturaT : lista) {
             System.out.println(facturaT.toString());
         }
 
