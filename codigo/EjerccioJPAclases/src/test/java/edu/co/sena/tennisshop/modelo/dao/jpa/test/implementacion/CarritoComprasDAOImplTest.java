@@ -66,4 +66,15 @@ public class CarritoComprasDAOImplTest {
 //        fail("The test case is a prototype.");
     }
 
+    @Test
+    public void testDelete() {
+        System.out.println("delete");
+        CarritoCompras entity = new CarritoCompras();
+        entity.setIdCARRITO("asdfasdfasdf");
+       CarritoComprasDAOImpl instance = new CarritoComprasDAOImpl();
+        instance.delete(entity);
+//// TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+    }
+
 }
