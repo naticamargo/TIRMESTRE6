@@ -16,7 +16,7 @@ public interface IUsuarioDAO {
     public void update(Usuario Entity);
     public void delete(Usuario Entity);
     public List<Usuario> findByAll();
-    public Usuario findByIdUsuario(Integer IdUsuario );
+    public Usuario findByIdUsuario(String IdUsuario );
     public List<Usuario> findByContrasena(String Contrasena);
     public List<Usuario> findByRol(String Rol);
     public List<Usuario> findByActivo(String Activo);
