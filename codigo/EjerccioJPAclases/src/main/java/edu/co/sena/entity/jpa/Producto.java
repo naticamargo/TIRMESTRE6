@@ -39,6 +39,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Producto.findByDescripcion", query = "SELECT p FROM Producto p WHERE p.descripcion = :descripcion"),
     @NamedQuery(name = "Producto.findByDescuento", query = "SELECT p FROM Producto p WHERE p.descuento = :descuento")})
 public class Producto implements Serializable {
+    @Lob
+    @Column(name = "IMAGEN")
+    private byte[] imagen;
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -50,9 +53,6 @@ public class Producto implements Serializable {
     @Basic(optional = false)
     @Column(name = "PRECIO")
     private float precio;
-    @Lob
-    @Column(name = "IMAGEN")
-    private byte[] imagen;
     @Basic(optional = false)
     @Column(name = "CANTIDAD")
     private int cantidad;
@@ -113,13 +113,6 @@ public class Producto implements Serializable {
         this.precio = precio;
     }
 
-    public byte[] getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(byte[] imagen) {
-        this.imagen = imagen;
-    }
 
     public int getCantidad() {
         return cantidad;
@@ -211,6 +204,14 @@ public class Producto implements Serializable {
     @Override
     public String toString() {
         return "edu.co.sena.entity.jpa.Producto[ idProducto=" + idProducto + " ]";
+    }
+
+    public byte[] getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(byte[] imagen) {
+        this.imagen = imagen;
     }
     
 }
