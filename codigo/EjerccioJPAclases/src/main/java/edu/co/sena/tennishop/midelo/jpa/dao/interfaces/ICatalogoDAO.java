@@ -18,4 +18,7 @@ public interface ICatalogoDAO {
    public void update(Catalogo Entity);
    public void delete(Catalogo Entity);
    public List<Catalogo> findByAll();
+   public Catalogo findByIdCatologo(Integer idCatalogo);
+   public List<Catalogo> findByNombre(String nombre);
+   public List<Catalogo> findByDescripcion(String descripcion);
 }
