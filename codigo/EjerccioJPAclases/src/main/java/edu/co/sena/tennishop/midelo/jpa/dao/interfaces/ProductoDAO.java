@@ -22,17 +22,17 @@ public interface ProductoDAO {
 
     public List<Producto> findByAll();
 
-    public Producto findByIdProducto();
+    public Producto findByIdProducto(String idProducto);
 
-    public List<Producto> findByNombreProdcuto(Object NombreProdcuto);
+    public List<Producto> findByNombreProdcuto(String NombreProdcuto);
 
-    public List<Producto> findByPrecio(Object Precio);
+    public List<Producto> findByPrecio(Double Precio);
 
-    public List<Producto> findByCantidad(Object Cantidad);
+    public List<Producto> findByCantidad(Integer Cantidad);
 
-    public List<Producto> findByDescripcion(Object Descripcion);
+    public List<Producto> findByDescripcion(String Descripcion);
     
-    public List<Producto> findByCatalogoIdCatalogo(Object CatalogoIdCatalogo);
+    public List<Producto> findByCatalogoIdCatalogo( Integer CatalogoIdCatalogo);
 
-    public List<Producto> findByCategoriaIdCategoria(Object CategoriaIdCategoria);
+    public List<Producto> findByCategoriaIdCategoria(Integer CategoriaIdCategoria);
 }
