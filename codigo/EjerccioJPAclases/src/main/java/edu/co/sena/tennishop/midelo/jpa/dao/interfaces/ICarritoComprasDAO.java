@@ -17,10 +17,10 @@ public interface ICarritoComprasDAO {
     public void update(CarritoCompras Entity);
     public void delete(CarritoCompras Entity);
     public List<CarritoCompras> findByAll();
-    public CarritoCompras findByIdCARRITO();
-    public List<CarritoCompras> findByTotal(Object total );
-    public List<CarritoCompras> findBySubtotal(Object subtotal );
-   public List<CarritoCompras> findByImpuestos(Object Impuestos);
+    public CarritoCompras findByIdCARRITO( String idCarrito);
+    public List<CarritoCompras> findByTotal(Double total );
+    public List<CarritoCompras> findBySubtotal(Double subtotal );
+   public List<CarritoCompras> findByImpuestos(Double Impuestos);
     
     
     
