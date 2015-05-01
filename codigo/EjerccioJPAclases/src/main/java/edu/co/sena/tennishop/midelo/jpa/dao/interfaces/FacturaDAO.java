@@ -6,6 +6,7 @@
 package edu.co.sena.tennishop.midelo.jpa.dao.interfaces;
 
 import edu.co.sena.entity.jpa.Factura;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,14 +23,10 @@ public interface FacturaDAO {
 
     public List<Factura> findByAll();
 
-    public Factura findByFactura();
+   public Factura findByIdFactura(Integer IdFactura);
 
-    public List<Factura> findByIdFactura(Object IdFactura);
+   public List<Factura> findByFechaFactura(Date FechaFactura);
 
-    public List<Factura> findByCuenta(Object cuenta);
-
-    public List<Factura> findByFechaFactura(Object FechaFactura);
-
-    public List<Factura> findByFormaPago(Object FormaPago);
+    public List<Factura> findByFormaPago(String FormaPago);
 
 }
