@@ -32,7 +32,5 @@ public interface ProductoDAO {
 
     public List<Producto> findByDescripcion(String Descripcion);
     
-    public List<Producto> findByCatalogoIdCatalogo( Integer CatalogoIdCatalogo);
-
-    public List<Producto> findByCategoriaIdCategoria(Integer CategoriaIdCategoria);
+   
 }
