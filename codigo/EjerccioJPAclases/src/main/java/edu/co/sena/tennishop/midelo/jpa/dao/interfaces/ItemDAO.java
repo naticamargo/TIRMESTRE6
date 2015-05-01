@@ -6,6 +6,7 @@
 package edu.co.sena.tennishop.midelo.jpa.dao.interfaces;
 
 import edu.co.sena.entity.jpa.Item;
+import edu.co.sena.entity.jpa.ItemPK;
 import java.util.List;
 
 /**
@@ -22,14 +23,12 @@ public interface ItemDAO {
 
     public List<Item> findByAll();
 
-    public Item findByIdItem();
+   public List<Item> findByIDItem(ItemPK itempkLlaves);
 
-    public List<Item> findByItemPK(Object ItemPK);
+    public List<Item> findByCantidad(Integer Cantidad);
 
-    public List<Item> findByCantidad(Object Cantidad);
+    public List<Item> findByValorUnitario(Float ValorUnitario);
 
-    public List<Item> findByValorUnitario(Object ValorUnitario);
-
-    public List<Item> findByValorTotal(Object ValorTotal);
+    public List<Item> findByValorTotal( Float ValorTotal);
 
 }
