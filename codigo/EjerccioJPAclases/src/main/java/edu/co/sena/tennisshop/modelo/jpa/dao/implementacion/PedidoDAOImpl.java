@@ -21,10 +21,9 @@ import javax.persistence.Query;
  */
 public class PedidoDAOImpl implements PedidoDAO {
 
-    public static final String FACTURA_ID_FACTURA = "factura_id_factura";
+    
     public static final String TOTAL = "total";
     public static final String SUBTOTAL = "Subtotal";
-
     public static final String IMPUESTOS = "impuestos";
 
     private EntityManager getEntityManager() {
@@ -95,7 +94,7 @@ public class PedidoDAOImpl implements PedidoDAO {
         return PedidoTemp;
     }
 
-    public Pedido findByFacturaIdFactura(int FacturaIdFactura) {
+    public Pedido findByFacturaIdFactura(Integer FacturaIdFactura) {
         EntityManager em = getEntityManager();
         Pedido PedidoTemp = null;
         try {
@@ -110,66 +109,56 @@ public class PedidoDAOImpl implements PedidoDAO {
         return PedidoTemp;
     }
 
-    public List<Pedido> findByTotal(double total) {
+    public List<Pedido> findByTotal(Double total) {
         EntityManager em = getEntityManager();
-        List<Pedido> PedidoTemp = null;
-        Query query = em.createNamedQuery("Pedido.findByTotal");
+        List<Pedido> pedidoTemporal = null;
+
         try {
-            PedidoTemp = query.getResultList();
+            Query query = em.createNamedQuery("Pedido.findByTotal");
+            query.setParameter(PedidoDAOImpl.TOTAL,total);
+            pedidoTemporal = query.getResultList();
         } catch (RuntimeException re) {
-            System.out.println("error:----------------" + re.getMessage());
+            System.out.println("erorrr:----------------" + re.getMessage());
         } finally {
             EntityManagerHelper.closeEntityManager();
         }
-        return PedidoTemp;
+        return pedidoTemporal;
     }
 
-    public List<Pedido> findBySubtotal(double subtotal) {
-        EntityManager em = getEntityManager();
-        List<Pedido> PedidoTemp = null;
-        Query query = em.createNamedQuery("Pedido.findBySubtotal");
+    public List<Pedido> findBySubtotal(Double subtotal) {
+         EntityManager em = getEntityManager();
+        List<Pedido> pedidoTemporal = null;
+
         try {
-            PedidoTemp = query.getResultList();
+            Query query = em.createNamedQuery("Pedido.findBySubtotal");
+            query.setParameter(PedidoDAOImpl.SUBTOTAL,subtotal);
+            pedidoTemporal = query.getResultList();
         } catch (RuntimeException re) {
-            System.out.println("error:----------------" + re.getMessage());
+            System.out.println("erorrr:----------------" + re.getMessage());
         } finally {
             EntityManagerHelper.closeEntityManager();
         }
-        return PedidoTemp;
+        return pedidoTemporal;
 
     }
 
-    public List<Pedido> findByImpuestos(double Impuestos) {
-        EntityManager em = getEntityManager();
-        List<Pedido> PedidoTemp = null;
-        Query query = em.createNamedQuery("Pedido.findByImpuestos");
+    public List<Pedido> findByImpuestos(Double Impuestos) {
+         EntityManager em = getEntityManager();
+        List<Pedido> pedidoTemporal = null;
+
         try {
-            PedidoTemp = query.getResultList();
+            Query query = em.createNamedQuery("Pedido.findByImpuestos");
+            query.setParameter(PedidoDAOImpl.IMPUESTOS,Impuestos);
+            pedidoTemporal = query.getResultList();
         } catch (RuntimeException re) {
-            System.out.println("error:----------------" + re.getMessage());
+            System.out.println("erorrr:----------------" + re.getMessage());
         } finally {
             EntityManagerHelper.closeEntityManager();
         }
-        return PedidoTemp;
+        return pedidoTemporal;
     }
 
-    @Override
-    public Pedido findByFacturaIdFactura() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
-    @Override
-    public List<Pedido> findByTotal(Object total) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Pedido> findBySubtotal(Object subtotal) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Pedido> findByImpuestos(Object Impuestos) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }
