@@ -135,7 +135,7 @@ public class UsuarioDAOImplTest {
     @Test
     public void testFindByActivo() {
         System.out.println("findByActivo");
-        String activo = "";
+        String activo = "1";
         UsuarioDAOImpl instance = new UsuarioDAOImpl();
         List<Usuario> result = instance.findByActivo(activo);
         for (Usuario result1 : result) {
