@@ -5,7 +5,7 @@
  */
 package edu.co.sena.tennishop.midelo.jpa.dao.interfaces;
 
-import edu.co.sena.tennisshop.integracion.jpa.entitis.Item;
+import edu.co.sena.entity.jpa.Item;
 import java.util.List;
 
 /**
