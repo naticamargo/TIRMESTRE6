@@ -20,7 +20,7 @@ public interface IIVentarioDAO {
     
     public Inventario findByIDInventario(InventarioPK inventarioPK);
     public List<Inventario> findByAll();
-    public List<Inventario> findByProductoIDproducto(Integer cantidad);
+    public List<Inventario> findByCantidad(Integer cantidad);
     
     
 }
