@@ -18,8 +18,6 @@ import javax.persistence.Query;
  * @author familia
  */
 public class ProveedorDAOImpl implements IProveedorDAO{
-    public static final String TIPODOCUMENTO= "tipoDocumento";
-    public  static final String NUMERODOCUMENTO= "numeroDocumento";
     public static final String NOMBREPROVEEDOR="nombreProvvedor";
     public static final String TELEFONO="telefono";
     public static final String CORREO="correo";
