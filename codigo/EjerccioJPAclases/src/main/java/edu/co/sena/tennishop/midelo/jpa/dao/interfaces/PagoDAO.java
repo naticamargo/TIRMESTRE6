@@ -22,13 +22,11 @@ public interface PagoDAO {
 
     public List<Pago> findByAll();
 
-    public Pago findByIdPago();
+   public List<Pago> findByNumeroCuenta(String NumeroCuenta);
 
-    public List<Pago> findByNumeroCuenta(Object NumeroCuenta);
+    public List<Pago> findByTargeta(String Targeta);
 
-    public List<Pago> findByTargeta(Object Targeta);
+    public List<Pago> findByTipoPago(String TipoPago);
 
-    public List<Pago> findByTipoPago(Object TipoPago);
-
-    public List<Pago> findByFacturaIdFactura(Object FacturaIdFactura);
+    public Pago findByFacturaIdFactura(Integer FacturaIdFactura);
 }
