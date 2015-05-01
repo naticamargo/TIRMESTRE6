@@ -5,6 +5,7 @@
  */
 package edu.co.sena.tennishop.midelo.jpa.dao.interfaces;
 import edu.co.sena.entity.jpa.Domicilio;
+import edu.co.sena.entity.jpa.DomicilioPK;
 import java.util.List;
 
 /**
@@ -17,6 +18,7 @@ public interface IDomicilioDAO {
     public void update(Domicilio Entity);
     public void delete(Domicilio Entity);
     public List<Domicilio> findByAll();
+    public Domicilio finByCuentaPk(DomicilioPK domicilioPKLlaves);
     public Domicilio findByIdDOMICILIO(Integer idDOMICILIO );
     public List<Domicilio> findByDirrecion(String dirrecion);
     public List<Domicilio> findByTelefono(String telefono);
