@@ -8,8 +8,8 @@ package edu.co.sena.tennisshop.modelo.jpa.dao.implementacion;
 import edu.co.sena.jpa.util.EntityManagerHelper;
 import static edu.co.sena.jpa.util.EntityManagerHelper.getEntityManager;
 import edu.co.sena.tennishop.midelo.jpa.dao.interfaces.PedidoDAO;
-import edu.co.sena.tennisshop.integracion.jpa.entitis.Pedido;
-import edu.co.sena.tennisshop.integracion.jpa.entitis.Factura;
+import edu.co.sena.entity.jpa.Pedido;
+import edu.co.sena.entity.jpa.Factura;
 
 import java.util.List;
 import javax.persistence.EntityManager;
