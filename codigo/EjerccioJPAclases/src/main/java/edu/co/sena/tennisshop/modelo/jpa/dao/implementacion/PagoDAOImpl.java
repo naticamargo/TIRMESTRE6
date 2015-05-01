@@ -20,12 +20,11 @@ import javax.persistence.Query;
  */
 public class PagoDAOImpl implements PagoDAO{
     
-     public static final String ID_PAGO = "Id_pago";
+     
     public static final String NUMEROCUENTA = "numero cuenta";
     public static final String TARGETA= "targeta";
-
     public static final String TIPOPAGO = "tipo pago";
-    public static final String FACTURA_ID_FACTURA = "factura_id_factura";
+    
 
     private EntityManager getEntityManager() {
         return EntityManagerHelper.getEntityManager();
@@ -98,100 +97,74 @@ public class PagoDAOImpl implements PagoDAO{
         return PagoTemp;
     }
 
-    public Pago findByIdPago(int IdPago) {
-        EntityManager em= getEntityManager();
-        Pago PagoTemp = null;
+    @Override
+    public List<Pago> findByNumeroCuenta(String NumeroCuenta) {
+        EntityManager em = getEntityManager();
+        List<Pago> pagoTemporal = null;
+
         try {
-            PagoTemp = em.find(Pago.class, IdPago);
+            Query query = em.createNamedQuery("Pago.findByNumeroCuenta");
+            query.setParameter(PagoDAOImpl.NUMEROCUENTA,NumeroCuenta);
+            pagoTemporal = query.getResultList();
         } catch (RuntimeException re) {
-            System.out.println("error:----------------" + re.getMessage());
+            System.out.println("erorrr:----------------" + re.getMessage());
+        } finally {
+            EntityManagerHelper.closeEntityManager();
+        }
+        return pagoTemporal;
+    }
+
+    @Override
+    public List<Pago> findByTargeta(String Targeta) {
+       EntityManager em = getEntityManager();
+        List<Pago> pagoTemporal = null;
+
+        try {
+            Query query = em.createNamedQuery("Pago.findByTargeta");
+            query.setParameter(PagoDAOImpl.TARGETA,Targeta);
+            pagoTemporal = query.getResultList();
+        } catch (RuntimeException re) {
+            System.out.println("erorrr:----------------" + re.getMessage());
+        } finally {
+            EntityManagerHelper.closeEntityManager();
+        }
+        return pagoTemporal;
+    }
+
+    @Override
+    public List<Pago> findByTipoPago(String TipoPago) {
+        EntityManager em = getEntityManager();
+        List<Pago> pagoTemporal = null;
+
+        try {
+            Query query = em.createNamedQuery("Pago.findByTipoPago");
+            query.setParameter(PagoDAOImpl.TIPOPAGO,TipoPago);
+            pagoTemporal = query.getResultList();
+        } catch (RuntimeException re) {
+            System.out.println("erorrr:----------------" + re.getMessage());
+        } finally {
+            EntityManagerHelper.closeEntityManager();
+        }
+        return pagoTemporal;
+    }
+
+    @Override
+    public Pago findByFacturaIdFactura(Integer FacturaIdFactura) {
+         EntityManager em = getEntityManager();
+        Pago pagoTemporal = null;
+        try {
+            pagoTemporal= em.find(Pago.class, FacturaIdFactura);
+        } catch (RuntimeException re) {
+            System.out.println("erorrr:----------------" + re.getMessage());
         } finally {
             if (em != null) {
                 EntityManagerHelper.closeEntityManager();
             }
         }
-        return PagoTemp;
-        
+        return pagoTemporal;
     }
 
-    public List<Pago> findByNumeroCuenta(double NumeroCuenta) {
-        
-        EntityManager em = getEntityManager();
-        List<Pago> PagoTemp = null;
-        Query query = em.createNamedQuery("Pago.findByNumeroCuenta");
-        try {
-            PagoTemp = query.getResultList();
-        } catch (RuntimeException re) {
-            System.out.println("error:----------------" + re.getMessage());
-        } finally {
-            EntityManagerHelper.closeEntityManager();
-        }
-        return PagoTemp;
-    }
-
-    public List<Pago> findByTargeta(String Targeta) {
-         EntityManager em = getEntityManager();
-        List<Pago> PagoTemp = null;
-        Query query = em.createNamedQuery("Pago.findByTargeta");
-        try {
-            PagoTemp = query.getResultList();
-        } catch (RuntimeException re) {
-            System.out.println("error:----------------" + re.getMessage());
-        } finally {
-            EntityManagerHelper.closeEntityManager();
-        }
-        return PagoTemp;
-    }
-
-   
-    public List<Pago> findByTipoPago(String TipoPago) {
-        EntityManager em = getEntityManager();
-        List<Pago> PagoTemp = null;
-        Query query = em.createNamedQuery("Pago.findByTipoPago");
-        try {
-            PagoTemp = query.getResultList();
-        } catch (RuntimeException re) {
-            System.out.println("error:----------------" + re.getMessage());
-        } finally {
-            EntityManagerHelper.closeEntityManager();
-        }
-        return PagoTemp;
-    }
-
-    @Override
-    public List<Pago> findByFacturaIdFactura(Object FacturaIdFactura) {
-        EntityManager em = getEntityManager();
-        List<Pago> PagoTemp = null;
-        Query query = em.createNamedQuery("Pago.findByFacturaIdFactura");
-        try {
-            PagoTemp = query.getResultList();
-        } catch (RuntimeException re) {
-            System.out.println("error:----------------" + re.getMessage());
-        } finally {
-            EntityManagerHelper.closeEntityManager();
-        }
-        return PagoTemp;
-    }
-
-    @Override
-    public Pago findByIdPago() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Pago> findByNumeroCuenta(Object NumeroCuenta) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Pago> findByTargeta(Object Targeta) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Pago> findByTipoPago(Object TipoPago) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+  
     }
     
 
