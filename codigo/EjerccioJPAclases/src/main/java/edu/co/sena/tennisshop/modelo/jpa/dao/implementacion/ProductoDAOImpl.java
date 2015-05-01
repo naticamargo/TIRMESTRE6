@@ -5,9 +5,10 @@
  */
 package edu.co.sena.tennisshop.modelo.jpa.dao.implementacion;
 
+import edu.co.sena.entity.jpa.Producto;
 import edu.co.sena.jpa.util.EntityManagerHelper;
 import edu.co.sena.tennishop.midelo.jpa.dao.interfaces.ProductoDAO;
-import edu.co.sena.tennisshop.integracion.jpa.entitis.Producto;
+import edu.co.sena.entity.jpa.Producto;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -18,26 +19,24 @@ import javax.persistence.Query;
  */
 public class ProductoDAOImpl implements ProductoDAO {
 
-    public static final String ID_PRODUCTO = "Id_producto";
-    public static final String NOMBRE_PRODCUTO = "nombre prodcuto";
+ 
+    public static final String NOMBRE_PRODCUTO = "nombreprodcuto";
     public static final String PRECIO = "precio";
 
     public static final String CANTIDAD = "cantidad";
     public static final String DESCRIPCION = "descripcion";
-    public static final String CatalogoIdCatalogo = "IdCatalogo_Catalogo";
-
-    public static final String CategoriaIdCategoria = "IdCategoria_Categoria";
+   
 
     private EntityManager getEntityManager() {
         return EntityManagerHelper.getEntityManager();
     }
 
     @Override
-    public void insert(Producto entity) {
-        EntityManager em = getEntityManager();
+    public void insert(Producto Entity) {
+         EntityManager em = getEntityManager();
         try {
             EntityManagerHelper.beginTransaction();
-            em.persist(entity);
+            em.persist(Entity);
             EntityManagerHelper.commit();
         } catch (RuntimeException re) {
             System.out.println("error:----------------" + re.getMessage());
@@ -49,11 +48,11 @@ public class ProductoDAOImpl implements ProductoDAO {
     }
 
     @Override
-    public void update(Producto entity) {
-        EntityManager em = getEntityManager();
+    public void update(Producto Entity) {
+         EntityManager em = getEntityManager();
         try {
             EntityManagerHelper.beginTransaction();
-            em.merge(entity);
+            em.merge(Entity);
             EntityManagerHelper.commit();
         } catch (RuntimeException re) {
             System.out.println("error:----------------" + re.getMessage());
@@ -65,171 +64,119 @@ public class ProductoDAOImpl implements ProductoDAO {
     }
 
     @Override
-    public void delete(Producto entity) {
-        EntityManager em = getEntityManager();
+    public void delete(Producto Entity) {
+       EntityManager em = getEntityManager();
         try {
             EntityManagerHelper.beginTransaction();
-            entity = getEntityManager().getReference(Producto.class,
-                    entity.getIdProducto());
-            em.remove(entity);
+            em.merge(Entity);
             EntityManagerHelper.commit();
         } catch (RuntimeException re) {
             System.out.println("error:----------------" + re.getMessage());
-//        } finally {
-//            if (em != null) {
-//                EntityManagerHelper.closeEntityManager();
+        } finally {
+            if (em != null) {
+                EntityManagerHelper.closeEntityManager();
+            }
         }
     }
 
     @Override
     public List<Producto> findByAll() {
         EntityManager em = getEntityManager();
-        List<Producto> ProductoTemp = null;
+        List<Producto> productoTemp = null;
         Query query = em.createNamedQuery("Producto.findAll");
         try {
-            ProductoTemp = query.getResultList();
+            productoTemp = query.getResultList();
         } catch (RuntimeException re) {
             System.out.println("error:----------------" + re.getMessage());
         } finally {
             EntityManagerHelper.closeEntityManager();
         }
-        return ProductoTemp;
+        return productoTemp;
     }
 
-    public Producto findByIdProducto(String IdProducto) {
+    @Override
+    public Producto findByIdProducto(String idProducto) {
         EntityManager em = getEntityManager();
-        Producto ProductoTemp = null;
+        Producto productoTemporal= null;
+
         try {
-            ProductoTemp = em.find(Producto.class, IdProducto);
+            productoTemporal=em.find(Producto.class, idProducto);
         } catch (RuntimeException re) {
-            System.out.println("error:----------------" + re.getMessage());
+            System.out.println("erorrr:----------------" + re.getMessage());
         } finally {
-            if (em != null) {
-                EntityManagerHelper.closeEntityManager();
-            }
+            EntityManagerHelper.closeEntityManager();
         }
-        return ProductoTemp;
+        return productoTemporal;
     }
 
+    @Override
     public List<Producto> findByNombreProdcuto(String NombreProdcuto) {
-
         EntityManager em = getEntityManager();
-        List<Producto> ProductoTemp = null;
-        Query query = em.createNamedQuery("Producto.findByNombreProdcuto");
+        List<Producto> productoTemporal = null;
+
         try {
-            ProductoTemp = query.getResultList();
+            Query query= em.createNamedQuery("Producto.findByNombreProdcuto");
+            query.setParameter(ProductoDAOImpl.NOMBRE_PRODCUTO, NombreProdcuto);
+            productoTemporal=query.getResultList();
         } catch (RuntimeException re) {
-            System.out.println("error:----------------" + re.getMessage());
+            System.out.println("erorrr:----------------" + re.getMessage());
         } finally {
             EntityManagerHelper.closeEntityManager();
         }
-        return ProductoTemp;
+        return productoTemporal;
     }
 
-    public List<Producto> findByPrecio(double Precio) {
+    @Override
+    public List<Producto> findByPrecio(Double Precio) {
         EntityManager em = getEntityManager();
-        List<Producto> ProductoTemp = null;
-        Query query = em.createNamedQuery("Producto.findByPrecio");
+        List<Producto> productoTemporal = null;
+
         try {
-            ProductoTemp = query.getResultList();
+            Query query= em.createNamedQuery("Producto.findByPrecio");
+            query.setParameter(ProductoDAOImpl.PRECIO, Precio);
+            productoTemporal=query.getResultList();
         } catch (RuntimeException re) {
-            System.out.println("error:----------------" + re.getMessage());
+            System.out.println("erorrr:----------------" + re.getMessage());
         } finally {
             EntityManagerHelper.closeEntityManager();
         }
-        return ProductoTemp;
+        return productoTemporal;
     }
 
-    public List<Producto> findByCantidad(double Cantidad) {
+    @Override
+    public List<Producto> findByCantidad(Integer Cantidad) {
         EntityManager em = getEntityManager();
-        List<Producto> ProductoTemp = null;
-        Query query = em.createNamedQuery("Producto.findByCantidad");
+        List<Producto> productoTemporal = null;
+
         try {
-            ProductoTemp = query.getResultList();
+            Query query= em.createNamedQuery("Producto.findByCantidad");
+            query.setParameter(ProductoDAOImpl.CANTIDAD, Cantidad);
+            productoTemporal=query.getResultList();
         } catch (RuntimeException re) {
-            System.out.println("error:----------------" + re.getMessage());
+            System.out.println("erorrr:----------------" + re.getMessage());
         } finally {
             EntityManagerHelper.closeEntityManager();
         }
-        return ProductoTemp;
+        return productoTemporal;
     }
 
+    @Override
     public List<Producto> findByDescripcion(String Descripcion) {
         EntityManager em = getEntityManager();
-        List<Producto> ProductoTemp = null;
-        Query query = em.createNamedQuery("Producto.findByDescripcion");
+        List<Producto> productoTemporal = null;
+
         try {
-            ProductoTemp = query.getResultList();
+            Query query= em.createNamedQuery("Producto.findByDescuento");
+            query.setParameter(ProductoDAOImpl.DESCRIPCION, Descripcion);
+            productoTemporal=query.getResultList();
         } catch (RuntimeException re) {
-            System.out.println("error:----------------" + re.getMessage());
+            System.out.println("erorrr:----------------" + re.getMessage());
         } finally {
             EntityManagerHelper.closeEntityManager();
         }
-        return ProductoTemp;
-
+        return productoTemporal;
     }
 
-    public List<Producto> findByCatalogoIdCatalogo(int CatalogoIdCatalogo) {
-        EntityManager em = getEntityManager();
-        List<Producto> ProductoTemp = null;
-        Query query = em.createNamedQuery("Producto.findByIdProducto");
-        try {
-            ProductoTemp = query.getResultList();
-        } catch (RuntimeException re) {
-            System.out.println("error:----------------" + re.getMessage());
-        } finally {
-            EntityManagerHelper.closeEntityManager();
-        }
-        return ProductoTemp;
-    }
-
-    public List<Producto> findByCategoriaIdCategoria(int CategoriaIdCategoria) {
-        EntityManager em = getEntityManager();
-        List<Producto> ProductoTemp = null;
-        Query query = em.createNamedQuery("Producto.findByIdProducto");
-        try {
-            ProductoTemp = query.getResultList();
-        } catch (RuntimeException re) {
-            System.out.println("error:----------------" + re.getMessage());
-        } finally {
-            EntityManagerHelper.closeEntityManager();
-        }
-        return ProductoTemp;
-    }
-
-    @Override
-    public Producto findByIdProducto() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Producto> findByNombreProdcuto(Object NombreProdcuto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Producto> findByPrecio(Object Precio) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Producto> findByCantidad(Object Cantidad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Producto> findByDescripcion(Object Descripcion) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Producto> findByCatalogoIdCatalogo(Object CatalogoIdCatalogo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Producto> findByCategoriaIdCategoria(Object CategoriaIdCategoria) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
 }
