@@ -73,11 +73,10 @@ public class MunicipioDAOImplTest {
 
     @Test
     public void testDelete() {
-        System.out.println("delete");
-        Municipio entity = new Municipio();
-        Entity.setIdMUNICIPIO(2);
+        System.out.println("Delete");
         MunicipioDAOImpl instance = new MunicipioDAOImpl();
-        instance.delete(entity);
+        Municipio cct = instance.findByIdMUNICIPIO(2);
+        instance.delete(cct);
 //// TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
     }

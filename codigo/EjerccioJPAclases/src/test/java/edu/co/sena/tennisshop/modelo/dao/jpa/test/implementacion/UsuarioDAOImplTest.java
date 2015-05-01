@@ -72,11 +72,10 @@ public class UsuarioDAOImplTest {
 
     @Test
     public void testDelete() {
-        System.out.println("delete");
-        Usuario entity = new Usuario();
-        entity.setIdUsuario("2");
+        System.out.println("Delete");
         UsuarioDAOImpl instance = new UsuarioDAOImpl();
-        instance.delete(entity);
+        Usuario cct = instance.findByIdUsuario("101");
+        instance.delete(cct);
 
     }
 
