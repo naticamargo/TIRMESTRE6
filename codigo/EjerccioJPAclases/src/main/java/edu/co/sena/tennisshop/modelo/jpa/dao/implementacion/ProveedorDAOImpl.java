@@ -95,40 +95,6 @@ public class ProveedorDAOImpl implements IProveedorDAO{
     }
 
     @Override
-    public List<Proveedor> findBytipoDocumento(String tipoDocumento) {
-        EntityManager em = getEntityManager();
-        List<Proveedor> proveedorTemporal = null;
-
-        try {
-            Query query= em.createNamedQuery("Proveedor.findByTipoDocumento");
-            query.setParameter(ProveedorDAOImpl.TIPODOCUMENTO,tipoDocumento);
-            proveedorTemporal=query.getResultList();
-        } catch (RuntimeException re) {
-            System.out.println("erorrr:----------------" + re.getMessage());
-        } finally {
-            EntityManagerHelper.closeEntityManager();
-        }
-        return proveedorTemporal;
-    }
-
-    @Override
-    public List<Proveedor> findBynumeroDocumento(String numeroDocumento) {
-        EntityManager em = getEntityManager();
-        List<Proveedor> proveedorTemporal = null;
-
-        try {
-            Query query= em.createNamedQuery("Proveedor.findByNumeroDocumento");
-            query.setParameter(ProveedorDAOImpl.NUMERODOCUMENTO, numeroDocumento);
-            proveedorTemporal=query.getResultList();
-        } catch (RuntimeException re) {
-            System.out.println("erorrr:----------------" + re.getMessage());
-        } finally {
-            EntityManagerHelper.closeEntityManager();
-        }
-        return proveedorTemporal;
-    }
-
-    @Override
     public List<Proveedor> findBynombreProvvedor(String nombreProvvedor) {
         EntityManager em = getEntityManager();
         List<Proveedor> proveedorTemporal = null;
@@ -181,12 +147,14 @@ public class ProveedorDAOImpl implements IProveedorDAO{
         return proveedorTemporal;
     }
 
+
+
     @Override
-    public Proveedor finByCuentaPk(ProveedorPK cuentaPKLlaves) {
-        EntityManager em = getEntityManager();
+    public Proveedor finByProveedor(ProveedorPK proveedorPKllaves) {
+         EntityManager em = getEntityManager();
         Proveedor proveedorTemporal = null;
         try {
-            proveedorTemporal= em.find(Proveedor.class, cuentaPKLlaves);
+            proveedorTemporal= em.find(Proveedor.class, proveedorPKllaves);
         } catch (RuntimeException re) {
             System.out.println(" Error : " + re.getMessage());
         } finally {
