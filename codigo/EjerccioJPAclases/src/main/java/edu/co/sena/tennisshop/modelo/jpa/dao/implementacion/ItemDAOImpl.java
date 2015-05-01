@@ -9,6 +9,7 @@ import edu.co.sena.jpa.util.EntityManagerHelper;
 import static edu.co.sena.jpa.util.EntityManagerHelper.getEntityManager;
 import edu.co.sena.tennishop.midelo.jpa.dao.interfaces.ItemDAO;
 import edu.co.sena.entity.jpa.Item;
+import edu.co.sena.entity.jpa.ItemPK;
 import edu.co.sena.entity.jpa.Pedido;
 import edu.co.sena.entity.jpa.Producto;
 import java.util.List;
@@ -21,10 +22,8 @@ import javax.persistence.Query;
  */
 public class ItemDAOImpl implements ItemDAO {
 
-    public static final String ID_ITEM = "Id_item";
-    public static final String ItemPK = "ItemPk";
+    
     public static final String CANTIDAD = "cantidad";
-
     public static final String VALOR_UNITARIO = "valor_Unitario";
     public static final String VALOR_TOTAL = "valor_total";
 
@@ -100,100 +99,73 @@ public class ItemDAOImpl implements ItemDAO {
         return ItemTemp;
     }
 
-    public Item findByIdItem(Integer IdItem) {
+    @Override
+    public Item findByIDItem(ItemPK itempkLlaves) {
         EntityManager em = getEntityManager();
-        Item ItemTemp = null;
+        Item itemTemporal = null;
         try {
-            ItemTemp = em.find(Item.class, IdItem);
+            itemTemporal = em.find(Item.class, itempkLlaves);
         } catch (RuntimeException re) {
-            System.out.println("error:----------------" + re.getMessage());
+            System.out.println("erorrr:----------------" + re.getMessage());
         } finally {
             if (em != null) {
                 EntityManagerHelper.closeEntityManager();
             }
         }
-        return ItemTemp;
+        return  itemTemporal;
     }
 
     @Override
-    public List<Item> findByItemPK(Object ItemPK) {
-        EntityManager em = getEntityManager();
-        Item ItemTemp = null;
-        try {
-            ItemTemp = em.find(Item.class, ItemPK);
-        } catch (RuntimeException re) {
-            System.out.println(" Error : " + re.getMessage());
-        } finally {
-            if (em != null) {
-                EntityManagerHelper.closeEntityManager();
-            }
-        }
-        return (List<Item>) ItemTemp;
-    }
+    public List<Item> findByCantidad(Integer Cantidad) {
+          EntityManager em = getEntityManager();
+        List<Item> itemTemporal = null;
 
-    public List<Item> findByCantidad(int Cantidad) {
-        EntityManager em = getEntityManager();
-        List<Item> ItemTemp = null;
-        Query query = em.createNamedQuery("Item.findByCantidad");
         try {
-            ItemTemp = query.getResultList();
+            Query query = em.createNamedQuery("Item.findByCantidad");
+            query.setParameter(ItemDAOImpl.CANTIDAD,Cantidad);
+            itemTemporal = query.getResultList();
         } catch (RuntimeException re) {
-            System.out.println("error:----------------" + re.getMessage());
+            System.out.println("erorrr:----------------" + re.getMessage());
         } finally {
             EntityManagerHelper.closeEntityManager();
         }
-        return ItemTemp;
-
+        return itemTemporal;
     }
 
-    public List<Item> findByValorUnitario(float ValorUnitario) {
-        EntityManager em = getEntityManager();
-        List<Item> ItemTemp = null;
-        Query query = em.createNamedQuery("Item.findByValorUnitario");
+    @Override
+    public List<Item> findByValorUnitario(Float ValorUnitario) {
+         EntityManager em = getEntityManager();
+        List<Item> itemTemporal = null;
+
         try {
-            ItemTemp = query.getResultList();
+            Query query = em.createNamedQuery("Item.findByValorUnitario");
+            query.setParameter(ItemDAOImpl.VALOR_UNITARIO,ValorUnitario);
+            itemTemporal = query.getResultList();
         } catch (RuntimeException re) {
-            System.out.println("error:----------------" + re.getMessage());
+            System.out.println("erorrr:----------------" + re.getMessage());
         } finally {
             EntityManagerHelper.closeEntityManager();
         }
-        return ItemTemp;
-
+        return itemTemporal;
     }
 
-    public List<Item> findByValorTotal(float ValorTotal) {
-        EntityManager em = getEntityManager();
-        List<Item> ItemTemp = null;
-        Query query = em.createNamedQuery("Item.findByValorTotal");
+    @Override
+    public List<Item> findByValorTotal(Float ValorTotal) {
+       EntityManager em = getEntityManager();
+        List<Item> itemTemporal = null;
+
         try {
-            ItemTemp = query.getResultList();
+            Query query = em.createNamedQuery("Item.findByValorTotal");
+            query.setParameter(ItemDAOImpl.VALOR_TOTAL,ValorTotal);
+            itemTemporal = query.getResultList();
         } catch (RuntimeException re) {
-            System.out.println("error:----------------" + re.getMessage());
+            System.out.println("erorrr:----------------" + re.getMessage());
         } finally {
             EntityManagerHelper.closeEntityManager();
         }
-        return ItemTemp;
-
+        return itemTemporal;
     }
 
-    @Override
-    public Item findByIdItem() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Item> findByCantidad(Object Cantidad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Item> findByValorUnitario(Object ValorUnitario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Item> findByValorTotal(Object ValorTotal) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
 }
