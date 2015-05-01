@@ -7,7 +7,7 @@ package edu.co.sena.tennisshop.modelo.jpa.dao.implementacion;
 
 import edu.co.sena.jpa.util.EntityManagerHelper;
 import edu.co.sena.tennishop.midelo.jpa.dao.interfaces.ICarritoComprasDAO;
-import edu.co.sena.tennisshop.integracion.jpa.entitis.CarritoCompras;
+import edu.co.sena.entity.jpa.CarritoCompras;
 import java.util.List;
 import javax.persistence.EntityManager;
 
