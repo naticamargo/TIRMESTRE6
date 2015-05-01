@@ -92,7 +92,7 @@ public class UsuarioDAOImpl implements IUsuarioDAO {
     }
 
     @Override
-    public Usuario findByIdUsuario(Integer IdUsuario) {
+    public Usuario findByIdUsuario(String IdUsuario) {
         
         EntityManager em = getEntityManager();
         Usuario usuarioTemporal= null;
