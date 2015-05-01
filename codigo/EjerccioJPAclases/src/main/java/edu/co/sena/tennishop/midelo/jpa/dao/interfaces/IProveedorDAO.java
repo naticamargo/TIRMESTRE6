@@ -19,11 +19,9 @@ public interface IProveedorDAO {
     public void delete(Proveedor Entity);
     public List<Proveedor> findByAll();
     
-    public List<Proveedor> findBytipoDocumento(String tipoDocumento);
-    public List<Proveedor> findBynumeroDocumento(String numeroDocumento);
     public List<Proveedor> findBynombreProvvedor(String nombreProvvedor);
     public List<Proveedor> findBytelefono(String telefono );
     public List<Proveedor> findBycorreo(String correo );
-    public Proveedor finByCuentaPk(ProveedorPK cuentaPKLlaves);
+    public Proveedor finByProveedor(ProveedorPK proveedorPKllaves);
     
 }
