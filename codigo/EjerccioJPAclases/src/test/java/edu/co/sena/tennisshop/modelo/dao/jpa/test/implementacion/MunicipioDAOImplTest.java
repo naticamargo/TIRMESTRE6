@@ -7,6 +7,7 @@ package edu.co.sena.tennisshop.modelo.dao.jpa.test.implementacion;
 
 import edu.co.sena.entity.jpa.Municipio;
 import edu.co.sena.tennisshop.modelo.jpa.dao.implementacion.MunicipioDAOImpl;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -79,5 +80,34 @@ public class MunicipioDAOImplTest {
         instance.delete(entity);
 //// TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
+    }
+
+    @Test
+    public void testFindByIdMunicipio() {
+        System.out.println("findByIdMunicipio");
+        Municipio cct;
+        Integer  idMunicipio = 1;
+        MunicipioDAOImpl mun = new MunicipioDAOImpl();
+        cct = mun.findByIdMUNICIPIO(idMunicipio);
+        System.out.println(cct.getIdMUNICIPIO());
+    }
+     @Test
+    public void testFindByAll() {
+        System.out.println("findByAll");
+        MunicipioDAOImpl instance = new MunicipioDAOImpl();
+        List<Municipio> result = instance.findByAll();
+        for (Municipio result1 : result) {
+            System.out.println(result1.toString());
+        }
+    }
+    @Test
+    public void testFindByNombreMunicipio() {
+        System.out.println("findByNombreMunicipio");
+        String nombre = "Tolima";
+        MunicipioDAOImpl instance = new MunicipioDAOImpl();
+        List<Municipio> result = instance.findByNombreMunicipio(nombre);
+        for (Municipio result1 : result) {
+            System.out.println(result1.toString());
+        }
     }
 }
