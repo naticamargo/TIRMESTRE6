@@ -23,7 +23,7 @@ public interface ItemDAO {
 
     public List<Item> findByAll();
 
-   public List<Item> findByIDItem(ItemPK itempkLlaves);
+   public Item findByIDItem(ItemPK itempkLlaves);
 
     public List<Item> findByCantidad(Integer Cantidad);
 
