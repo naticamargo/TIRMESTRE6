@@ -36,7 +36,7 @@ public class UsuarioDAOImplTest {
 
     @Before
     public void setUp() {
-        Entity.setIdUsuario("1");
+        Entity.setIdUsuario("101");
         Entity.setCorreoElectronico("cristiancho.96@hotmail.com");
         Entity.setContrasena("123456789");
         Entity.setActivo(Boolean.TRUE);
@@ -55,14 +55,8 @@ public class UsuarioDAOImplTest {
     @Test
     public void testInsert() {
         System.out.println("insert");
-        Usuario entity = new Usuario();
-        entity.setIdUsuario("1");
-        entity.setCorreoElectronico("cristiancho.96@hotmail.com");
-        entity.setContrasena("123456789");
-        entity.setActivo(Boolean.TRUE);
-        entity.setRol("cliente");
         UsuarioDAOImpl instance = new UsuarioDAOImpl();
-        instance.insert(entity);
+        instance.insert(Entity);
 
     }
 
@@ -70,11 +64,7 @@ public class UsuarioDAOImplTest {
     public void testUpdate() {
         System.out.println("update");
         Usuario entity = new Usuario();
-        entity.setIdUsuario("2");
-        entity.setCorreoElectronico("cristiancho.96@hotmail.com");
-        entity.setContrasena("123456789");
-        entity.setActivo(Boolean.TRUE);
-        entity.setRol("cliente");
+        entity.setCorreoElectronico("cris.96@hotmail.com");
         UsuarioDAOImpl instance = new UsuarioDAOImpl();
         instance.update(entity);
 
@@ -87,8 +77,7 @@ public class UsuarioDAOImplTest {
         entity.setIdUsuario("2");
         UsuarioDAOImpl instance = new UsuarioDAOImpl();
         instance.delete(entity);
-//// TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
+
     }
 
     @Test
