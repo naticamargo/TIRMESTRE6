@@ -22,12 +22,12 @@ public interface PedidoDAO {
 
     public List<Pedido> findByAll();
 
-    public Pedido findByFacturaIdFactura();
+    public Pedido findByFacturaIdFactura(Integer idFactura);
 
-    public List<Pedido> findByTotal(Object total);
+    public List<Pedido> findByTotal(Double total);
 
-    public List<Pedido> findBySubtotal(Object subtotal);
+    public List<Pedido> findBySubtotal(Double subtotal);
 
-    public List<Pedido> findByImpuestos(Object Impuestos);
+    public List<Pedido> findByImpuestos(Double Impuestos);
 
 }
