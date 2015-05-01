@@ -71,11 +71,10 @@ public class DepartamentoDAOImplTest {
 
     @Test
     public void testDelete() {
-        System.out.println("delete");
-        Departamento entity = new Departamento();
-        Entity.setIdDEPARTAMENTO(2);
+        System.out.println("Delete");
         DepartamentoDAOImpl instance = new DepartamentoDAOImpl();
-        instance.delete(entity);
+        Departamento cct = instance.findByIdDEPARTAMENTO(2);
+        instance.delete(cct);
 
     }
     
