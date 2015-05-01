@@ -18,7 +18,7 @@ public interface IDomicilioDAO {
     public void update(Domicilio Entity);
     public void delete(Domicilio Entity);
     public List<Domicilio> findByAll();
-    public Domicilio finByCuentaPk(DomicilioPK domicilioPKLlaves);
+    public Domicilio finByDomicilioPk(DomicilioPK domicilioPKLlaves);
     public Domicilio findByIdDOMICILIO(Integer idDOMICILIO );
     public List<Domicilio> findByDirrecion(String dirrecion);
     public List<Domicilio> findByTelefono(String telefono);
