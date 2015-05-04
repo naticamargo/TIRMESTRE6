@@ -2,23 +2,22 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="edu.co.sena_EjerccioJPAclases_jar_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>edu.co.sena.tennisshop.integracion.jpa.entitis.Proveedor</class>
-    <class>edu.co.sena.tennisshop.integracion.jpa.entitis.Domicilio</class>
-    <class>edu.co.sena.tennisshop.integracion.jpa.entitis.CarritoCompras</class>
-    <class>edu.co.sena.tennisshop.integracion.jpa.entitis.Factura</class>
-    <class>edu.co.sena.tennisshop.integracion.jpa.entitis.Municipio</class>
-    <class>edu.co.sena.tennisshop.integracion.jpa.entitis.Catalogo</class>
-    <class>edu.co.sena.tennisshop.integracion.jpa.entitis.Departamento</class>
-    <class>edu.co.sena.tennisshop.integracion.jpa.entitis.Usuario</class>
-    <class>edu.co.sena.tennisshop.integracion.jpa.entitis.Item</class>
-    <class>edu.co.sena.tennisshop.integracion.jpa.entitis.Categoria</class>
-    <class>edu.co.sena.tennisshop.integracion.jpa.entitis.Pago</class>
-    <class>edu.co.sena.tennisshop.integracion.jpa.entitis.ItemCarrito</class>
-    <class>edu.co.sena.tennisshop.integracion.jpa.entitis.Inventario</class>
-    <class>edu.co.sena.tennisshop.integracion.jpa.entitis.Producto</class>
-    <class>edu.co.sena.tennisshop.integracion.jpa.entitis.Cuenta</class>
-    <class>edu.co.sena.tennisshop.integracion.jpa.entitis.Pedido</class>
-    <class>edu.co.sena.tennisshop.integracion.jpa.entitis.Usuario_1</class>
+    <class>edu.co.sena.entity.jpa.CarritoCompras</class>
+    <class>edu.co.sena.entity.jpa.Categoria</class>
+    <class>edu.co.sena.entity.jpa.Catalogo</class>
+    <class>edu.co.sena.entity.jpa.Cuenta</class>
+    <class>edu.co.sena.entity.jpa.Departamento</class>
+    <class>edu.co.sena.entity.jpa.Domicilio</class>
+    <class>edu.co.sena.entity.jpa.Factura</class>
+    <class>edu.co.sena.entity.jpa.Inventario</class>
+    <class>edu.co.sena.entity.jpa.Item</class>
+    <class>edu.co.sena.entity.jpa.ItemCarrito</class>
+    <class>edu.co.sena.entity.jpa.Municipio</class>
+    <class>edu.co.sena.entity.jpa.Pago</class>
+    <class>edu.co.sena.entity.jpa.Pedido</class>
+    <class>edu.co.sena.entity.jpa.Producto</class>
+    <class>edu.co.sena.entity.jpa.Proveedor</class>
+    <class>edu.co.sena.entity.jpa.Usuario</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/tennisshop?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
