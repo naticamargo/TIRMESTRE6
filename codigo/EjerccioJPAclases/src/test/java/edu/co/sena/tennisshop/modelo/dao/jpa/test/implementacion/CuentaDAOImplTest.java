@@ -39,13 +39,14 @@ public class CuentaDAOImplTest {
     @Before
     public void setUp() {
         
-        Entity.setCuentaPK(new CuentaPK(null, null));
+        Entity.setCuentaPK(new CuentaPK("C.C", "1023010294"));
         Entity.setPrimerApellido("Moreno");
         Entity.setPrimerNombre("Stefany");
         Entity.setSegundoApellido("Munoz");
         Entity.setSegundoNombre("Andrea");
         Entity.setUsuario("Andre123");
         Entity.setUsuarioIdUsuario(new Usuario("1"));
+        
     }
     
     @After
@@ -84,8 +85,8 @@ public class CuentaDAOImplTest {
     }
     
     @Test
-    public void testFindByProveedor() {
-        System.out.println("findByProveedor");
+    public void testFindByCuenta() {
+        System.out.println("findByCuenta");
         Cuenta pro;
         String idtipoDocumento = "C.C";
         String idnumeroDocumento = "102301924";
