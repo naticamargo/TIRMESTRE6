@@ -87,7 +87,7 @@ public class DomicilioDAOImplTest {
         Domicilio pro;
         String idtipoDocumento = "C.C";
         String idnumeroDocumento = "102301924";
-        integer idDOMICILIO = "1";
+        Integer idDOMICILIO = 1;
         DomiciloDAOImpl Domicilio = new DomiciloDAOImpl();
         pro = Domicilio.finByDomicilioPk(new DomicilioPK(idDOMICILIO, idtipoDocumento, idnumeroDocumento));
         System.out.println(pro.getDomicilioPK());
