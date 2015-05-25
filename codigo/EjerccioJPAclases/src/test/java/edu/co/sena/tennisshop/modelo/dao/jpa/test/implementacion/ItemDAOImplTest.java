@@ -5,9 +5,10 @@
  */
 package edu.co.sena.tennisshop.modelo.dao.jpa.test.implementacion;
 
-import edu.co.sena.tennisshop.integracion.jpa.entitis.Item;
-import edu.co.sena.tennisshop.integracion.jpa.entitis.ItemPK;
+import edu.co.sena.entity.jpa.Item;
 import edu.co.sena.tennisshop.modelo.jpa.dao.implementacion.ItemDAOImpl;
+import edu.co.sena.entity.jpa.ItemPK;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,8 +19,9 @@ import org.junit.Test;
  * @author ColsutecR
  */
 public class ItemDAOImplTest {
+
     public ItemDAOImplTest() {
-        Item entity= new Item();
+        Item entity = new Item();
     }
 
     @AfterClass
@@ -48,8 +50,7 @@ public class ItemDAOImplTest {
         entity.setCantidad(15);
         entity.setValorUnitario(124850);
         entity.setValorTotal(0);
-      
-     
+
         ItemDAOImpl instance = new ItemDAOImpl();
         instance.insert(entity);
 
@@ -72,14 +73,66 @@ public class ItemDAOImplTest {
     @Test
     public void testDelete() {
         System.out.println("delete");
-         Item entity = new Item();
+        Item entity = new Item();
         entity.setCantidad(10);
-       ItemDAOImpl instance = new ItemDAOImpl();
+        ItemDAOImpl instance = new ItemDAOImpl();
         instance.delete(entity);
 //// TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
     }
 
+    @Test
+    public void testfindByAll() {
+        System.out.println("findByAll");
+        ItemDAOImpl instance = new ItemDAOImpl();
+        List<Item> result = instance.findByAll();
+        for (Item result1 : result) {
+            System.out.println(result1.toString());
+        }
+    }
+
+    @Test
+    public void testfindByIDItem() {
+        System.out.println("findByIDItem");
+        Item itm;
+        ItemPK IdItem = new ItemPK("101", 0111);
+        ItemDAOImpl item1 = new ItemDAOImpl();
+        itm = item1.findByIDItem(null);
+        System.out.println(itm.toString());
+    }
+
+    @Test
+    public void testfindByCantidad() {
+        System.out.println("findByCantidad");
+        Integer cantidad = 7;
+        ItemDAOImpl instance = new ItemDAOImpl();
+        List<Item> result = instance.findByCantidad(cantidad);
+        for (Item result1 : result) {
+            System.out.println(result1.toString());
+        }
+
+    }
+
+    @Test
+
+    public void testfindByValorUnitario() {
+        System.out.println("findByValorUnitario");
+        float valorUnitario = 154780;
+        ItemDAOImpl instance = new ItemDAOImpl();
+        List<Item> result = instance.findByValorUnitario(valorUnitario);
+        for (Item result1 : result) {
+            System.out.println(result1.toString());
+        }
+    }
+
+    @Test
+    public void testFindByValorTotal() {
+        System.out.println("findByValorTotal");
+        float valorTotal = 150444;
+        ItemDAOImpl instance = new ItemDAOImpl();
+        List<Item> result2 = instance.findByValorTotal(valorTotal);
+        for (Item result1 : result2) {
+            System.out.println(result1.toString());
+        }
+    }
 }
-
-
