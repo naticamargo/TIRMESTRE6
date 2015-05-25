@@ -5,29 +5,29 @@
  */
 package edu.co.sena.tennisshop.modelo.factory;
 
-import edu.co.sena.tennisshop.modelo.factory.mysql.MysqlJPADAOUsurio;
+import edu.co.sena.tennisshop.modelo.factory.mysql.MysqlJPADAOFactura;
 
 /**
  *
- * @author ColsutecR
+ * @author pc
  */
-public abstract class DAOAbstractFactory implements DAOUsuario {
+public abstract  class DAOAbstractFactoryFactura implements DAOFactura{
     public static final int MYSQL_FACTORY = 1;
     
-    public final static DAOAbstractFactory getDAOFactory(int factoryType) throws Exception{
+    public final static DAOAbstractFactoryFactura getDAOFactory(int factoryType) throws Exception{
         switch (factoryType) {
           
             case MYSQL_FACTORY:{
-                return new MysqlJPADAOUsurio();
+                return new MysqlJPADAOFactura();
             }
           
             default:{
                 System.out.println("El tipo de fabrica no puede sr implementado o no existe");
                 return null;
             }
-    
-        }
 
+        }
     }
 }
 
+        

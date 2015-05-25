@@ -11,7 +11,6 @@ import edu.co.sena.tennishop.midelo.jpa.dao.interfaces.FacturaDAO;
  *
  * @author pc
  */
-public interface DAOFactura {
-     public FacturaDAO createFacturaDAo();
-    
+public interface DAOFactura{
+    public FacturaDAO createItemDAO();
 }
