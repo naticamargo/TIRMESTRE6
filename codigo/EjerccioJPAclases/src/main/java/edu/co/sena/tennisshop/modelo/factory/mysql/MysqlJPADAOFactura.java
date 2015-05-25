@@ -4,11 +4,24 @@
  * and open the template in the editor.
  */
 package edu.co.sena.tennisshop.modelo.factory.mysql;
+import edu.co.sena.tennishop.midelo.jpa.dao.interfaces.FacturaDAO;
+import edu.co.sena.tennisshop.modelo.factory.DAOAbstractFactoryFactura;
+import edu.co.sena.tennisshop.modelo.jpa.dao.implementacion.FacturaDAOImpl;
 
 /**
  *
  * @author pc
  */
-public class MysqlJPADAOFactura {
+public class MysqlJPADAOFactura extends DAOAbstractFactoryFactura {
+ 
     
+
+    @Override
+    public FacturaDAO createItemDAO() {
+        return new FacturaDAOImpl();
+        
+    }
 }
+    
+        
+    

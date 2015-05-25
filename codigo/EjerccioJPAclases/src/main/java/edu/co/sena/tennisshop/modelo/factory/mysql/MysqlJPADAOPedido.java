@@ -5,10 +5,18 @@
  */
 package edu.co.sena.tennisshop.modelo.factory.mysql;
 
+import edu.co.sena.tennishop.midelo.jpa.dao.interfaces.PedidoDAO;
+import edu.co.sena.tennisshop.modelo.factory.DAOAbstractFactoryPedido;
+import edu.co.sena.tennisshop.modelo.jpa.dao.implementacion.PedidoDAOImpl;
+
 /**
  *
  * @author pc
  */
-public class MysqlJPADAOPedido {
-    
+public class MysqlJPADAOPedido extends DAOAbstractFactoryPedido {
+
+    public PedidoDAO createPedidoDAO() {
+        return new PedidoDAOImpl();
+
+    }
 }

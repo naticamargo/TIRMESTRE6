@@ -5,10 +5,19 @@
  */
 package edu.co.sena.tennisshop.modelo.factory.mysql;
 
+import edu.co.sena.entity.jpa.Producto;
+import edu.co.sena.tennishop.midelo.jpa.dao.interfaces.ProductoDAO;
+import edu.co.sena.tennisshop.modelo.factory.DAOAbstractFactoryProducto;
+import edu.co.sena.tennisshop.modelo.jpa.dao.implementacion.ProductoDAOImpl;
+import java.util.List;
+
 /**
  *
  * @author pc
  */
-public class MysqlJPADAOProducto {
-    
+public class MysqlJPADAOProducto extends DAOAbstractFactoryProducto {
+
+    public ProductoDAO createProductoDAO() {
+        return new ProductoDAOImpl();
+    }
 }
