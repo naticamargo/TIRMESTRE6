@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.co.sena.tennisshop.modelo.factory;
-
-import edu.co.sena.tennishop.midelo.jpa.dao.interfaces.ItemDAO;
+package edu.co.sena.tennisshop.modelo.factory.mysql;
 
 /**
  *
- * @author pc
+ * @author ADMIN
  */
-public interface DAOItem {
-    public ItemDAO createItemDAO();
+public interface DaoFactory {
+    
 }
