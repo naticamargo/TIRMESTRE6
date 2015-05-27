@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 import edu.co.sena.jpa.util.EntityManagerHelper;
-import edu.co.sena.tennisshop.integracion.jpa.entitis.CarritoCompras;
-import edu.co.sena.tennisshop.integracion.jpa.entitis.Cuenta;
+import edu.co.sena.entity.jpa.CarritoCompras;
+import edu.co.sena.entity.jpa.Cuenta;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
