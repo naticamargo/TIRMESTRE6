@@ -5,9 +5,9 @@
  */
 import edu.co.sena.jpa.util.EntityManagerHelper;
 import java.util.Calendar;
-import edu.co.sena.tennisshop.integracion.jpa.entitis.Cuenta;
-import edu.co.sena.tennisshop.integracion.jpa.entitis.Domicilio;
-import edu.co.sena.tennisshop.integracion.jpa.entitis.Factura;
+import edu.co.sena.entity.jpa.Cuenta;
+import edu.co.sena.entity.jpa.Domicilio;
+import edu.co.sena.entity.jpa.Factura;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
