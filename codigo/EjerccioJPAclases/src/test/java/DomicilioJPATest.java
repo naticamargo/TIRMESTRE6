@@ -7,6 +7,7 @@ import edu.co.sena.jpa.util.EntityManagerHelper;
 import edu.co.sena.entity.jpa.Categoria;
 import edu.co.sena.entity.jpa.Cuenta;
 import edu.co.sena.entity.jpa.Domicilio;
+import edu.co.sena.entity.jpa.DomicilioPK;
 import edu.co.sena.entity.jpa.Municipio;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -42,7 +43,7 @@ public class DomicilioJPATest {
     @Before
     public void setUp() {
         domicilio= new Domicilio();
-        domicilio.setIdDOMICILIO(101);
+        domicilio.setDomicilioPK(new DomicilioPK(1, "CC", "10678957"));
         domicilio.setDirrecion("callle3 sur # 34-87 ");
         domicilio.setBarrio("venecia");
         domicilio.setTelefono("67900");
@@ -74,10 +75,11 @@ public class DomicilioJPATest {
     public void actualizarDomicilio() {
 
         String idDomicilio = JOptionPane.showInputDialog("Escriba el id del domicilio");
-        
+        String TipoDocu= JOptionPane.showInputDialog(" escriba el tipo de documento");
+        String NumeroDoc=JOptionPane.showInputDialog(" escriba el numero de documento");
         String actTele = JOptionPane.showInputDialog("Escriba El Telefono");
 
-        domicilio.setIdDOMICILIO(Integer.parseInt(idDomicilio));
+        domicilio.setDomicilioPK(new DomicilioPK(Integer.parseInt(idDomicilio), TipoDocu, NumeroDoc));
         domicilio.setTelefono(actTele);
 
         em = EntityManagerHelper.getEntityManager();
