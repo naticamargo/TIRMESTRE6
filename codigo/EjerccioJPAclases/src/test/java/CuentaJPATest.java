@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 import edu.co.sena.jpa.util.EntityManagerHelper;
-import edu.co.sena.tennisshop.integracion.jpa.entitis.Cuenta;
-import edu.co.sena.tennisshop.integracion.jpa.entitis.CuentaPK;
-import edu.co.sena.tennisshop.integracion.jpa.entitis.Inventario;
-import edu.co.sena.tennisshop.integracion.jpa.entitis.Usuario;
+import edu.co.sena.entity.jpa.Cuenta;
+import edu.co.sena.entity.jpa.CuentaPK;
+import edu.co.sena.entity.jpa.Inventario;
+import edu.co.sena.entity.jpa.Usuario;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
