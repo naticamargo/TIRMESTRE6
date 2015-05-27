@@ -36,7 +36,7 @@ public class CarritoComprasDAOImplTest {
 
     @Before
     public void setUp() {
-        Entity.setIdCARRITO("1001");
+        Entity.setIdCARRITO("3");
         Entity.setImpuestos(16);
         Entity.setSubtotal(70000);
         Entity.setTotal(61000);
@@ -79,7 +79,7 @@ public class CarritoComprasDAOImplTest {
         ICarritoComprasDAO ejemplo = fabrica.createCarritoComprasDAO();
         ejemplo.insert(Entity);
 
-        CarritoCompras ct = ejemplo.findByIdCARRITO("1001");
+        CarritoCompras ct = ejemplo.findByIdCARRITO("3");
         ejemplo.delete(ct);
     }
 
@@ -87,7 +87,7 @@ public class CarritoComprasDAOImplTest {
     public void testFindByIdCarrito() throws Exception {
         System.out.println("findByIdCARRITO");
         CarritoCompras ct;
-        String idcarrito = "1001";
+        String idcarrito = "3";
         DaoFactory fabrica = MysqlJPADAOFactory.getDAOFactory(DAOAbstractFactory.MYSQL_FACTORY);
         ICarritoComprasDAO ejemplo = fabrica.createCarritoComprasDAO();
         ct = ejemplo.findByIdCARRITO(idcarrito);
