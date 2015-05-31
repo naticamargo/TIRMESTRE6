@@ -24,7 +24,7 @@ import static org.junit.Assert.*;
  * @author ADMIN
  */
 public class PedidoJPATest {
-     Pedido  pedido;
+   Pedido  pedido;
     EntityManagerFactory emf;
     EntityManager em;
     public PedidoJPATest() {
@@ -40,7 +40,7 @@ public class PedidoJPATest {
     
     @Before
     public void setUp() {
-        pedido= new Pedido();
+        pedido = new Pedido();
         pedido.setFacturaIdFactura(1);
         pedido.setImpuestos(6);
         pedido.setSubtotal(50000);
