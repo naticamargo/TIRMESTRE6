@@ -8,6 +8,7 @@ package edu.co.sena.tennisshop.modelo.dao.jpa.test.implementacion;
 import edu.co.sena.entity.jpa.CarritoCompras;
 import edu.co.sena.entity.jpa.Categoria;
 import edu.co.sena.tennisshop.modelo.jpa.dao.implementacion.CategoriaDAOImpl;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -79,4 +80,36 @@ public class CategoriaDAOImplTest {
         System.out.println(ct.toString());
 
     }
+     @Test
+    public void testFindByAll() {
+        System.out.println("findByAll");
+        CategoriaDAOImpl instance = new CategoriaDAOImpl();
+        List<Categoria> result = instance.findByAll();
+        for (Categoria result1 : result) {
+            System.out.println(result1.toString());
+        }
+}
+    
+     @Test
+    public void testFindByNombre() {
+        System.out.println("findByNombre");
+        String nombre = "nueva categoria";
+        CategoriaDAOImpl instance = new CategoriaDAOImpl();
+        List<Categoria> result = instance.findByNombre(nombre);
+        for (Categoria result1 : result) {
+            System.out.println(result1.toString());
+        }
+}
+    
+     @Test
+    public void testFindByMarca() {
+        System.out.println("findByMarca");
+        String marca = "adidas";
+        CategoriaDAOImpl instance = new CategoriaDAOImpl();
+        List<Categoria> result = instance.findByNombre(marca);
+        for (Categoria result1 : result) {
+            System.out.println(result1.toString());
+        }
+    
+}
 }
